@@ -9,5 +9,6 @@ Adam also goes on to explain that the corporate bond etf to treasury bond etf ra
 In this project I use rolling regression to find the rolling correlations for these variables. 
 
 To do:
+- Add links to data sources
 - Visualize these relationships within different time frames, and identify the most effective ones
 - Predict the direction of interest rates
