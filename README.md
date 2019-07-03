@@ -8,7 +8,7 @@ Adam also goes on to explain that the corporate bond etf to treasury bond etf ra
 
 In this project I use rolling regression to find the rolling correlations for these variables. 
 
-# Data Sources
+Data Sources
 - LQD, IEF, IYU, and IDY are all from yahoo finance. The 10 year year treasury yield and copper are from investing.com, and the gold prices were found on Quandl.
 
 To do:
