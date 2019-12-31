@@ -59,8 +59,8 @@ iyf_idu = pd.DataFrame(dataset.IYF/dataset.IDU)
 dataset['IYF_IDU'] = iyf_idu
 
 #create weekly and monthly datasets
-weekly_dataset = dataset.resample('W').max()
-monthly_dataset = dataset.resample('M').max()
+weekly_dataset = dataset.resample('W').last()
+monthly_dataset = dataset.resample('M').last()
 
 #define the dependent variable y
 y_weekly = weekly_dataset['10yr_yield']
