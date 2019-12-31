@@ -59,8 +59,8 @@ iyf_idu = pd.DataFrame(dataset.IYF/dataset.IDU)
 dataset['IYF_IDU'] = iyf_idu
 
 #create weekly and monthly datasets
-weekly_dataset = dataset.resample('W').max()
-monthly_dataset = dataset.resample('M').max()
+weekly_dataset = dataset.resample('W').last()
+monthly_dataset = dataset.resample('M').last()
 
 #define the dependent variable y
 y_weekly = weekly_dataset['10yr_yield']
@@ -110,9 +110,9 @@ def RollingOLS(X,y,window=int):
         
         #define daterange
         startdate = str(ywin.index[0])
-        startdate = startdate[:-9]
+        startdate = startdate[:-12]
         enddate = str(ywin.index[-1])
-        enddate = enddate[:-9]
+        enddate = enddate[:-12]
         daterange = str(startdate + " to " + enddate)
         dateranges = pd.concat([dateranges, pd.DataFrame([daterange],columns=['Date Range'])],
                                                     axis=0,ignore_index=True)
@@ -181,6 +181,8 @@ def RollingOLS(X,y,window=int):
     return accscores
 
 #run regression on time frame and ratio of choice
-roll_cg_13_weeks = RollingOLS(cg_weekly,y_weekly,window=13)
+roll_cg_13_weeks = RollingOLS(cg_monthly,y_monthly,window=3)
+
+print(roll_cg_13_weeks)
 
 #next - visualize and run predictive analytics
